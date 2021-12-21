@@ -1,0 +1,49 @@
+.container-test{
+    background-color: #ccc;
+    /* padding: .2rem; */
+    width: 800px;
+    margin: 30px auto;
+    min-height: 30rem;
+    box-shadow: 0 0 5px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+
+    /* INSTRUCTOR'S SOLUTION */
+    /* grid-template-columns: 100px 200px 400px 100px ; */
+    /* header smallboxes maincontent footer */
+
+    /* grid-template-columns: repeat(3, 1fr) 200px ; */
+    /* gap: 30px; */
+    /* sidebar will occupy 200px and the rest of the space will be divided between the 3 columns and the gutter of course */
+    
+    /* naming grid lines */
+    
+}
+
+/* the header which is box1 */
+.box--1{
+    /* same as the instructor's solution */
+    grid-column: 1/-1;
+}
+/* the small boxes which can represent featured posts i.e box2, box3 and box4 */
+.box--2, .box--3, .box--4{
+    height: 80px;
+}
+/* the side bar which is box 5 */
+.box--5{
+    /* same as the instructor's solution */
+    grid-column: 4/5;
+    grid-row: 2/span 2
+} 
+/* the main content which is box 6 */
+.box--6{
+    /* same as */
+    grid-column: 1 / span 3;
+    height: 15rem;
+}
+/* the footer which is box7 */
+.box--7{
+    /* same as instructor's solution */
+    grid-column: 1/-1;
+}
