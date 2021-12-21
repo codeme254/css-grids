@@ -143,3 +143,140 @@
 
 
 
+
+/* naming grid areas */
+.container-test{
+    width: 800px;
+    margin: 30px auto;
+    display: grid;
+
+    grid-template-areas: "head head head head"
+                          "box box box side"
+                          "main main main side"
+                          "foot foot foot foot";
+}
+
+/* the header */
+.box--1{
+    grid-area: head;
+}
+
+/* the main content */
+.box--6{
+    grid-area: main;
+}
+
+/* the sidebar */
+.box--5{
+    grid-area: side;
+}
+.box--7{
+    grid-area: foot;
+}
+
+
+
+/* implicit and explicit grids */
+.container-imp{
+    width: 1000px;
+    margin: 30px auto;
+    background-color: #ccc;
+
+    display: grid;
+    grid-template-rows: repeat(2, 150px);
+    grid-template-columns: repeat(2, 1fr);
+    /* we have 8 items but the space we are defining is only fit for four items, , the remainig four items are added by the algorithm, this is 
+    what we call the implicit grid */
+    /* EXPLICIT GRID: is the part we define with the template rows and the template colums */
+    /* IMPLICIT GRID: the part that is added automatically in order to fit the content that does not fit in the explicit grid */
+    /* by default, implicit grids are added as rows */
+    /* implicit grid can also be styled as follows */
+    grid-auto-rows: 80px;
+    /* grid-auto-columns: .5fr; */
+
+    /* to change the implicit grids from rows to columns::we use the grid-auto-flow property*/
+    /* grid-auto-flow: column; */
+
+    gap: 30px;
+
+
+    /* aligining grid items */
+    align-items: center;/*vertically aligns items along the column axis. by default it is set to stretch*/
+    /* others are center, end and start */
+    justify-items: center;/*horizontally aligns items across the row axis. by default is is set to stretch*/
+    /* we also have center, end and start */
+
+
+    /* aligning tracks to the container */
+    grid-template-rows: repeat(2, 100px);
+    grid-template-columns: repeat(2, 250px);
+    height: 1000px;
+
+    justify-content: center;/*aligns the traacks inside of the container across the row axis i.e horizontally*/
+    /* space-between space-around space-evenly start end center */
+    align-content: center;/*aligns the tracks inside of  the container across    the  column axis i.e vertically */
+}
+    .itemimp{
+    padding: 20px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 30px;
+    background-color: orangered;
+}
+.item--14{
+    background-color: crimson;
+    grid-row: 2/span 3;
+
+    /* align-self */
+    align-self: start;
+    /* justify-self */
+    justify-self: start;
+    /* we also have end, center */
+} 
+.item--17{
+    background-color: palevioletred;
+    grid-column: 1/-1;
+}
+
+
+
+/* min-content, max-content and the min-max() function */
+.container-ms{
+    width: 1000px;
+    margin: 30px auto;
+    background-color: #ccc;
+
+    display: grid;
+    /* grid-template-rows: repeat(2, min-content); */
+
+    /* max-content::exact width so as to accomodate the content: it also tries to avoid line breaks */
+    /* min-content:: the column track takes the largest width that is needed to fit the content without overflowing */
+    /* minmax()::funtion that we pass two values in and the track will ensure it never goes outside these values */
+    /* grid-template-columns: max-content 1fr 1fr min-content;
+    grid-template-rows: repeat(2, minmax(150px, min-content));
+    grid-template-columns: minmax(200px, 300px) repeat(3, 1fr); */
+    grid-template-rows: repeat(2, minmax(150px, min-content));
+    
+    /* auto-fill and auto-fit */
+    grid-template-columns: repeat(auto-fit, 100px);/*creates as many tracks with the desired width as fit into the container*/
+    /* auto-fit collapses the tracks and gives them a width of zero.*/
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.itemm{
+    background-color: red;
+    font-size: 30px;
+    padding: 10px;
+    color: white;
+    text-transform: capitalize;
+}
+.item--121{ background-color: orangered;}
+.item--122{ background-color: yellowgreen;}
+.item--123{ background-color: blueviolet;}
+.item--124{ background-color: palevioletred;}
+.item--125{ background-color: royalblue;}
+.item--126{ background-color: goldenrod;}
+.item--127{ background-color: crimson;}
+.item--128{ background-color: darkslategray;}
+
+
